@@ -93,17 +93,15 @@ E 在同一组属性设置中标有“!important”规则的优先级最大
     	<img>、<input>
 
 >inline:内联元素{  
-
->1. 不能设置width和height 
-1. 多个行内元素排成一行，直到一行排不下，才会换新一行；  
-3. 只可以设置水平方向的边距，如：margin-left,margin-right,padding-left,padding-right.  
+>1. 不能设置width和height
+>1. 多个行内元素排成一行，直到一行排不下，才会换新一行；  
+>3. 只可以设置水平方向的边距，如：margin-left,margin-right,padding-left,padding-right.  
 }
  
 >block:块级元素{
-> 
 >1. 块级元素独占一行；
-2. 可以设置width和height，默认宽度为一整行，除非单独设置宽度；  
-3. 可以设置margin和padding属性。    
+>2. 可以设置width和height，默认宽度为一整行，除非单独设置宽度；  
+>3. 可以设置margin和padding属性。    
 }  
 
 >inline-block{  
@@ -111,14 +109,18 @@ E 在同一组属性设置中标有“!important”规则的优先级最大
 }
 
 ### CSS布局模型
+
 1. 流动模型(Flow):默认网页布局，块状元素自上而下宽度100%，内联元素自左向右水平分布
 2. 浮动模型(Float):让元素浮动起来，可使块状元素并排显示
 3. 层模型(Layer)
- 1. 绝对定位(position: absolute)   
+
+----------
+#### 层模型
+1. 绝对定位(position: absolute)  
 	>如果想为元素设置层模型中的绝对定位，需要设置position:absolute(表示绝对定位)，这条语句的作用将元素从文档流中拖出来，然后使用left、right、top、bottom属性相对于其最接近的一个具有定位属性的父包含块进行绝对定位。如果不存在这样的包含块，则相对于body元素，即相对于浏览器窗口。   	
- 2. 相对定位(position: relative) 
+2. 相对定位(position: relative) 
 	>如果想为元素设置层模型中的相对定位，需要设置position:relative（表示相对定位），它通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。相对定位完成的过程是首先按static(float)方式生成一个元素(并且元素像层一样浮动了起来)，然后相对于以前的位置移动，移动的方向和幅度由left、right、top、bottom属性确定，偏移前的位置保留不动。   
- 3. 固定定位(position: fixed)   
+3. 固定定位(position: fixed)   
 	>fixed：表示固定定位，与absolute定位类型类似，但它的相对移动的坐标是视图（屏幕内的网页窗口）本身。由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小，因此固定定位的元素会始终位于浏览器窗口内视图的某个位置，不会受文档流动影响，这与background-attachment:fixed;属性功能相同。
 
    
