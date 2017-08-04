@@ -123,7 +123,45 @@ E 在同一组属性设置中标有“!important”规则的优先级最大
 3. 固定定位(position: fixed)   
 	>fixed：表示固定定位，与absolute定位类型类似，但它的相对移动的坐标是视图（屏幕内的网页窗口）本身。由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小，因此固定定位的元素会始终位于浏览器窗口内视图的某个位置，不会受文档流动影响，这与background-attachment:fixed;属性功能相同。
 
+## 居中小技巧
+### 水平居中
+1. 行内元素
+   >行内元素通过父元素`text:align：center`来居中
+2. 定宽块状元素
+   >制定width的块状元素，设置`margin:0 auto`来水平居中
+3. 不定宽块状元素剧中
+   >1. 加入 table 标签
+   >1. 设置 display: inline 方法：与第一种类似，显示类型设为行内元素，进行不定宽元素的属性设置
+   >1. 设置 position:relative 和 left:50%：利用 相对定位 的方式，将元素向左偏移 50% ，即达到居中的目的  
    
- 
+		.container{
+   		 float:left;
+    	 position:relative;
+    	 left:50%
+		}
+		.container ul{
+   		 list-style:none;
+   		 margin:0;
+   		 padding:0;
+  		 position:relative;
+    	 left:-50%;
+		}
+### 垂直居中
+1. 父元素高度确定的单行文本
+	>将父元素height和line-height设置为相同值
+3. 父元素高度确定的多行文本（一）
+	>原理就是把待垂直居中元素的父元素渲染为td的样子，除了采用层层嵌套table tbody tr td的方式，还可以设置display：table-cell强制改变父元素的渲染方式，并显示的设置vertical-align:middle令子元素垂直居中
 
+		 #cc {
+     	 display:table-cell;
+     	 background:#ccc;
+     	 height:500px;
+     	 vertical-align:middle;
+ 		 }
+		<div id="cc">
+   		<img src="xxx.jpg" title="害羞的小女生"/>
+		</div> 
+        /* 虽然不用添加无意义的标签，但不兼容IE6,7且改变了display的block
 
+### 隐形改变display类型
+>当元素设置为`1. position : absolute ` 或者`float : left 或 float:right ` 元素类型会自动转换为`display:inline-block`
